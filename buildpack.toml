@@ -3,7 +3,7 @@ api = "0.5"
 
 # Buildpack ID and metadata
 [buildpack]
-id = "eagle/files"
+id = "eagle/java-agents"
 version = "0.0.1"
 name = "Files Buildpack"
 homepage = "https://github.com/eagle/file-buildpack"
