@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+#If there aren't any agent jars in the java-agents dir, then this buildpack doesn't apply
+if [ -z "$(ls -A /app/java-agents/*.jar)" ]; then
+    exit 100
+fi

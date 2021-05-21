@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Java Agents Buildpack"
+
+layers_dir=$1
+
+agents_layer="$layers_dir"/java-agents
+mkdir -p "$agents_layer"
+
+echo -e 'launch = true' > "$layers_dir/java-agents.toml"
+
+cp /app/java-agents/*.jar $agents_layer/
+
+opts_str=""
+declare -a jar_files_array
+agent_jars_array=($(ls $agents_layer/*.jar))
+for ELEMENT in ${agent_jars_array[@]}; do
+  opts_str+="-javaagent:$ELEMENT"
+done
+
+echo "$opts_str" > "JAVA_TOOL_OPTIONS.append"
