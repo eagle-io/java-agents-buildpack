@@ -8,3 +8,11 @@ version = "0.0.1"
 name = "Files Buildpack"
 homepage = "https://github.com/eagle/file-buildpack"
 
+[[stacks]]
+id = "io.buildpacks.stacks.bionic"
+
+[[stacks]]
+id = "io.paketo.stacks.tiny"
+
+[[stacks]]
+id = "org.cloudfoundry.stacks.cflinuxfs3"
